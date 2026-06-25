@@ -1,0 +1,26 @@
+Campaign Name: OSINT Training Simulation
+
+Tool: GoPhish
+
+Target Group:
+- Training Users (1 test user)
+
+Email Template:
+- Urgent: TourEnquiries Data Update Required
+
+Landing Page:
+- TourEnquiries Login Portal (Simulated)
+
+Sending Profile:
+- SMTP (Not configured in local lab environment)
+
+URL:
+- http://127.0.0.1
+
+Purpose:
+- Controlled phishing simulation for cybersecurity training
+- Social engineering awareness demonstration
+
+Status:
+- Campaign executed successfully in lab environment
+- Email delivery not completed due to SMTP limitation

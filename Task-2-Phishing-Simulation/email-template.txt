@@ -1,0 +1,20 @@
+
+Subject: Urgent: TourEnquiries Data Update Required
+
+Dear User,
+
+We are currently updating the TourEnquiries internal database as part of routine security and compliance procedures.
+
+You are required to verify your account information immediately to ensure uninterrupted access to internal services.
+
+Please complete the verification using the link below:
+
+http://127.0.0.1/login
+
+Failure to complete this update may result in temporary restriction of your account access.
+
+This is an automated notification from the IT Security Department. Please do not ignore this message.
+
+Regards,  
+IT Security Team  
+TourEnquiries Internal Systems
