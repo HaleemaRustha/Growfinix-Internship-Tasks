@@ -1,0 +1,24 @@
+# SMTP Limitation Explanation
+
+During the execution of the phishing simulation campaign in GoPhish, email delivery was not completed due to the absence of a configured SMTP server.
+
+## Explanation
+
+GoPhish requires an active SMTP configuration to send emails externally or to test recipients. In this lab setup, SMTP was not configured, which resulted in:
+
+- No email delivery
+- Campaign status showing 0 sent emails
+- No user interaction metrics recorded
+
+## Impact on Simulation
+
+Despite the lack of email delivery, the following components were successfully implemented:
+
+- Phishing email template design
+- Landing page creation
+- Target group configuration
+- Campaign workflow setup
+
+## Conclusion
+
+The simulation successfully demonstrated the structure and setup of a phishing campaign. The absence of SMTP affects delivery only and does not impact the understanding of the phishing workflow or configuration process.
