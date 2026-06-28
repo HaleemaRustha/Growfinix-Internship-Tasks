@@ -1,0 +1,106 @@
+# Task 4: Network Traffic Analysis & Packet Sniffing
+
+## Introduction
+
+The objective of this task was to capture and analyze network traffic using Wireshark. The analysis focused on identifying unencrypted HTTP credentials by examining packets generated from a locally hosted web application. This exercise demonstrates how sensitive information can be exposed when transmitted over unsecured protocols.
+
+---
+
+# Objective
+
+* Capture network traffic using Wireshark.
+* Analyze captured packets.
+* Identify HTTP requests and responses.
+* Extract unencrypted credentials from network traffic.
+* Understand the importance of encrypted communication.
+
+---
+
+# Tools Used
+
+* Kali Linux
+* Wireshark 4.6.4
+* Python 3
+* Local HTTP Server
+
+---
+
+# Methodology
+
+## 1. Packet Capture
+
+Wireshark was launched on Kali Linux, and packet capturing was started on the Loopback (`lo`) interface because the web server was hosted locally. This ensured that all communication between the browser and the local server was captured.
+
+## 2. HTTP Login Simulation
+
+A simple Python HTTP server was created to simulate an employee login portal. The login form accepted a username and password and transmitted the information using the HTTP protocol.
+
+The following sample credentials were submitted:
+
+* Username: employee
+* Password: Password123
+
+## 3. Packet Analysis
+
+After submitting the login form, packet capturing was stopped and the captured traffic was filtered using the following Wireshark display filter:
+
+```
+http
+```
+
+The HTTP communication observed included:
+
+* GET request for the login page
+* HTTP 200 OK response
+* POST request containing login credentials
+* HTTP 200 OK response
+
+The POST request was inspected in detail.
+
+Within the packet contents, the following information was identified:
+
+```
+Form item: username = employee
+Form item: password = Password123
+```
+
+The credentials were transmitted in plaintext because the application used HTTP rather than HTTPS.
+
+---
+
+# Findings
+
+The packet analysis demonstrated that:
+
+* HTTP requests and responses were successfully captured.
+* The login form submitted credentials through an HTTP POST request.
+* The submitted username and password were visible directly within the packet data.
+* No encryption protected the transmitted credentials.
+
+This confirms that HTTP is not suitable for transmitting sensitive authentication data.
+
+---
+
+# Security Impact
+
+Applications that use HTTP expose user credentials to anyone capable of monitoring network traffic. An attacker performing packet sniffing on the same network could intercept usernames, passwords, session information, and other sensitive data.
+
+This exercise illustrates the importance of encrypting web traffic to protect confidentiality and prevent credential theft.
+
+---
+
+# Recommendations
+
+To improve security, the following measures are recommended:
+
+* Replace HTTP with HTTPS.
+* Use TLS encryption for all authentication traffic.
+* Never transmit usernames or passwords over unencrypted connections.
+* Implement secure authentication and password management practices.
+* Regularly monitor network traffic for suspicious activity.
+
+---
+
+# Conclusion
+
+This task successfully demonstrated the process of capturing and analyzing network traffic using Wireshark. By examining the HTTP POST request, plaintext login credentials were identified within the captured packets. The exercise reinforced the importance of secure communication protocols and highlighted the risks associated with transmitting sensitive information over HTTP. The practical experience gained through this task strengthened fundamental skills in packet capture, protocol analysis, and basic network security.
